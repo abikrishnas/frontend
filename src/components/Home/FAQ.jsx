@@ -5,14 +5,16 @@ const FAQItem = ({ heading, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="border-b border-gray-600">
+    <div className="border-b border-teal-600/30">
       <button
-        className="w-full py-4 flex justify-between items-center text-white"
+        className="w-full py-4 flex justify-between items-center text-white hover:text-pink-200"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <span className="text-lg">{heading}</span>
+        <span className="text-lg font-medium">{heading}</span>
         <ChevronDown
-          className={`transform transition-transform ${isOpen ? 'rotate-180' : ''}`}
+          className={`transform transition-transform duration-200 ${
+            isOpen ? 'rotate-180' : ''
+          }`}
         />
       </button>
       {isOpen && (
@@ -26,11 +28,11 @@ const FAQItem = ({ heading, children }) => {
 
 const FAQ = () => {
   return (
-    <div className="py-16">
+    <div className="max-w-3xl mx-auto px-4">
       <h2 className="text-4xl font-bold text-white text-center mb-12">
         Frequently Asked Questions !
       </h2>
-      <div className="max-w-2xl mx-auto space-y-4">
+      <div className="space-y-4">
         <FAQItem heading="What is News Segregator?">
           News Segregator is a platform that helps you organize and filter news based on your interests and preferences.
         </FAQItem>
